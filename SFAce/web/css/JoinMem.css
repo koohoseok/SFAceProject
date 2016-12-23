@@ -1,0 +1,40 @@
+@CHARSET "UTF-8";
+
+h2#h1{
+	font-size:50px;
+	margin-top:20px;
+	padding-top:15px;
+	margin-left:15px;
+	padding-left:20px;
+}
+table#t1{
+	overflow: auto;
+	box-shadow: 10px 10px 10px 10px #5ab500;
+	table-layout:fixed;
+	border:2px solid green;
+	margin-left:150px;
+	width:450px;
+	
+}
+
+table#t2{
+	margin-left:400px;	
+	
+}
+body{
+	
+}
+
+
+a:link {text-decoration: none; color: #333333;}
+a:visited {text-decoration: none; color: #333333;}
+
+div#part1{
+	box-shadow: 10px 10px 15px 15px #888888;
+	background-color: #eeffe6;
+	background-image: url("../images/JoinBackGround5.jpg")
+}
+
+div#part2{
+	background-color: #ffdde3;
+}
