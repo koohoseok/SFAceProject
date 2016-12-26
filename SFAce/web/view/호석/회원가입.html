@@ -2,76 +2,82 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<div id="part1">
 <title>회 원 가 입</title>
-  <link rel="stylesheet" type="text/css" href="../../css/호석/JoinMem.css" />
+	<link rel="stylesheet" type="text/css" href="../../css/호석/JoinMem.css" />
 </head>
-<body>
-<h2 id="h1">회 원 가 입</h2>
 
-	<table id="t1" cellspacing="20">
-<tr>
-	<td width="100px">아이디</td>
-	<td cellspacing="20">
-		<input type="text" id="tx1" placeholder="8자 미만 영문,숫자 혼합" required>
-		<button align="left">중복 확인</button>
-	</td>
-	
-</tr>
-<tr>
-	<td>이름</td>
-	<td><input type="text" id="tx1" required></td>
-</tr>
-<tr>
-	<td>닉네임</td>
-	<td>
-		<input type="text" id="tx2" required>
-		<button>중복 확인</button>
-	</td>
-	
-</tr>
-<tr>
-	<td>비밀번호</td>
-	<td><input type="password" id="tx3" placeholder="6자 이상" required></td>
-</tr>
-<tr>
-	<td>비밀번호 확인</td>
-	<td><input type="password" id="tx4" placeholder="같은 비밀번호" required></td>
-</tr>
-<tr>
-	<td>이메일</td>
-	<td><input type="email" id="tx5" placeholder="ex)abc123@naver.com" required></td>
-</tr>
-<tr>
-	<td>생년월일</td>
-	<td><input type="date" id="tx6" required></td>
-</tr>
-<tr>
-	<td>성별</td>
-	<td><input type="radio" name="gender" checked>남
-		<input type="radio" name="gender" >여
+<body>
+<div id="part1">
+	<h2 id="h1">회 원 가 입</h2>
+	<form action="" method="get">
+		<table id="t1" cellspacing="20">
+	<tr>
+		<td width="100px">아이디</td>
+		<td cellspacing="20">
+			<input type="text" id="tx1" placeholder="8자 미만 영문,숫자 혼합" required autofocus>
+			<button align="left">중복 확인</button>
+		</td>		
+	</tr>
+	<tr>
+		<td>이름</td>
+		<td><input type="text" id="tx1" required></td>
+	</tr>
+	<tr>
+		<td>닉네임</td>
+		<td>
+			<input type="text" id="tx2" required>
+			<button>중복 확인</button>
+		</td>		
+	</tr>
+	<tr>
+		<td>비밀번호</td>
+		<td><input type="password" id="tx3" placeholder="6자 이상" required></td>
+	</tr>
+	<tr>
+		<td>비밀번호 확인</td>
+		<td><input type="password" id="tx4" placeholder="같은 비밀번호" required></td>
+	</tr>
+	<tr>
+		<td>이메일</td>
+		<td><input type="email" id="tx5" placeholder="ex)abc123@naver.com" required></td>
+	</tr>
+	<tr>
+		<td>생년월일</td>
+		<td><input type="date" id="tx6" required></td>
+	</tr>
+	<tr>
+		<td>성별</td>
+		<td><input type="radio" name="gender" checked>남
+			<input type="radio" name="gender" >여
 		</td>
-</tr>
-<tr>
-	<td>관심분야</td>
-	<td>
-		<input type="checkbox" id="tx8_1" >영화
-		<input type="checkbox" id="tx8_2" >운동
-		<input type="checkbox" id="tx8_3" >게임
-		<input type="checkbox" id="tx8_4" >쇼핑
-	</td>
-</tr>
+	</tr>
+	<tr>
+		<td>관심분야</td>
+		<td>
+			<input type="checkbox" id="tx8_1" >영화
+			<input type="checkbox" id="tx8_2" >운동
+			<input type="checkbox" id="tx8_3" >게임
+			<input type="checkbox" id="tx8_4" >쇼핑
+		</td>
+	</tr>
 </table>
+
 <br>
+
 <table id="t2" cellspacing="20" cellspacing ="10">
-	<td><input type="submit" value="회원가입" align="left">
-	</td>
-	<td><button id="cancle"><a href="../../index.html">취소</a></button>
-	</td>
-</table><p><br></div>
+	<td><input type="submit" value="회원가입" align="left">				</td>
+	<td><button id="cancle"><a href="../../index.html">취소</a></button>	</td>
+</table>
+<p><br>
+</div>
+
 <hr>
+
 <div id="part2">
 	<h2 align="center">#이미지 추가하는 공간<br><BR><BR></h2>
 </div>
+
+</form>
+
 </body>
 </html>
