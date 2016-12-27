@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.flex-container {
+    display: -webkit-flex;
+    display: flex;  
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    text-align: center;
+}
+.flex-container > * {
+    padding: 15px;
+    -webkit-flex: 1 100%;
+    flex: 1 100%;
+}
+.header{
+	height :50px;
+ 	text-align: left;
+ 	background: grey;
+ 	color:white;
+}
+.footer{
+	height :50px;
+ 	text-align: center;
+ 	background: grey;
+ 	color:white;
+}
+.nav{
+	float:left;
+	background:#eee;
+}
+.article {
+	display : block;
+	padding: 10px;
+	border: 3px solid grey;
+	border :1px black;
+	align: center;
+    text-align: center;
+}
+table.table{
+		margin-left: auto;
+        margin-right: auto;
+}
+.groupInfo{
+	border: 1px solid grey; 
+	position: absolute; 
+	width:150px; 
+	height:180px; 
+	margin: auto; 
+	text-align: center; 
+	top:80px; 
+	left:30px;
+}
+.boardMenu{
+	border: 1px solid grey; 
+	position: absolute; 
+	width:150px; 
+	height:500px; 
+	margin: auto; 
+	text-align: center; 
+	top:270px; 
+	left:30px;
+}
+input[type="searchBoard"] {
+	border: 1px solid grey; 
+	position: absolute; 
+	width:200px; 
+	height:30px; 
+	margin: auto; 
+	text-align: left; 
+	top:95px; 
+	right:230px;
+}
+.search{
+	border: none; 
+	position: absolute; 
+	width:250px; 
+	height:80px; 
+	margin: auto; 
+	text-align: center; 
+	top:90px; 
+	right:350px;
+	font-size:2em;
+	font-weight: bold;
+	color: grey;
+}
+.writeButton {
+	position: absolute; 
+	width:80px; 
+	height:35px; 
+	margin: auto; 
+	text-align: center; 
+	top:95px; 
+	right:100px;
+	font-size:1.2em;
+	font-weight: bold;
+	color: grey;
+
+}
+.buttonSubject {
+	position: absolute;
+	background-color: whtie;
+	border: none;
+	color: grey;
+}
+.board{
+	border: none; 
+	position: absolute; 
+	width:250px; 
+	height:180px; 
+	margin: auto; 
+	text-align: center; 
+	top:70px; 
+	left:180px;
+	font-size:3em;
+	font-weight: bold;
+	color: grey;
+}
+.boardMain{
+	border: 1px solid grey; 
+	position: relative; 
+	width: 800px; 
+	height: 500px; 
+	margin: auto; 
+	top: 400px;
+	left: 200px;
+}
+.button {
+	position: absolute; 
+    background-color: #D5D5D5; 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+	font-size: 24px;
+	width: 60px;
+	height: 20px;
+	left:45px;
+	
+}
+.button1 { top:320px; }
+.button2 { top:380px; }
+.button3 { top:440px; }
+.button4 { top:500px; }
+.button5 { top:560px; }
+
+.bigTable{
+	
+	border: 1px solid grey; 
+	position: relative; 
+	width:100%; 
+	height: 900px; 
+	margin: auto; 
+	text-align: center; 
+}
+table {
+    border-collapse: collapse;
+    width: 80%;
+    margin-left:250px;
+    margin-top: 170px;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #D5D5D5}
+
+th {
+    background-color: #D4F4FA;
+    color: black;
+}
+</style>
+
+<meta charset="UTF-8">
+<title>게시판</title>
+</head>
+
+<body>
+<form action = "">
+<div class="flex-container">
+
+<header class="header">
+	<h1>게시판</h1>
+</header>
+<nav class="nav">
+	게시판
+</nav>
+
+ <article class ="article">
+ <div class="bigTable" >
+ 		<div class="groupInfo">소모임 정보</div>
+ 		<div class="boardMenu">게시판</div>
+ 		
+ 		<a href="noticeBoard.html" class="button button1">공지</a>
+		<a href="friendsBoard.html" class="button button2">친목</a>
+		<a href="humberBoard.html" class="button button3">유머</a>
+		<a href="gameBoard.html" class="button button4">게임</a>
+		<a href="movieBoard.html" class="button button5">영화</a>
+		<div class="board">게시판</div>
+		<div class="search">검색</div>
+		<input type="searchBoard" name="" >
+		<button class="writeButton">글쓰기</button>
+		
+		<table>
+		<tr>
+	    <th>번호</th>
+	    <th>제목</th>
+	    <th>작성자</th>
+	    <th>작성일</th>
+	    <th>조회</th>
+	    </tr>
+	  	<tr>
+	    <td>1</td>
+	    <td>Griffin</td>
+	    <td>이송이</td>
+	    <td>2016-12-27</td>
+	    <td>1</td>
+	 	</tr>
+	 	<tr>
+	    <td>1</td>
+	    <td>Griffin</td>
+	    <td>이송이</td>
+	    <td>2016-12-27</td>
+	    <td>1</td>
+		</tr>
+	 	<tr>
+	    <td>1</td>
+	    <td>Griffin</td>
+	    <td>이송이</td>
+	    <td>2016-12-27</td>
+	    <td>1</td>
+	 	</tr>
+	 	<tr>
+	 	<td>1</td>
+	    <td>Griffin</td>
+	    <td>이송이</td>
+	    <td>2016-12-27</td>
+	    <td>1</td>
+		</tr>
+		<tr>
+	 	<td>1</td>
+	    <td>Griffin</td>
+	    <td>이송이</td>
+	    <td>2016-12-27</td>
+	    <td>1</td>
+		</tr>
+		<tr>
+	 	<td>1</td>
+	    <td>Griffin</td>
+	    <td>이송이</td>
+	    <td>2016-12-27</td>
+	    <td>1</td>
+		</tr>
+		<tr>
+	 	<td>1</td>
+	    <td>Griffin</td>
+	    <td>이송이</td>
+	    <td>2016-12-27</td>
+	    <td>1</td>
+		</tr>
+		<tr>
+	 	<td>1</td>
+	    <td>Griffin</td>
+	    <td>이송이</td>
+	    <td>2016-12-27</td>
+	    <td>1</td>
+		</tr>
+		<tr>
+	 	<td>1</td>
+	    <td>Griffin</td>
+	    <td>이송이</td>
+	    <td>2016-12-27</td>
+	    <td>1</td>
+		</tr>
+		<tr>
+	 	<td>1</td>
+	    <td>Griffin</td>
+	    <td>이송이</td>
+	    <td>2016-12-27</td>
+	    <td>1</td>
+		</table>
+	</div> 
+	</article> 
+<footer class ="footer">
+	<h3>made by SFACE</h3>
+</footer>
+	</div>
+	</form>
+</body>
+</html>
