@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+
+.flex-container {
+    display: -webkit-flex;
+    display: flex;  
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    text-align: center;
+}
+.flex-container > * {
+    padding: 15px;
+    -webkit-flex: 1 100%;
+    flex: 1 100%;
+	}
+.header{
+	height :50px;
+ 	text-align: left;
+ 	background: grey;
+ 	color:white;
+	}
+.footer{
+	float:left;width:100%;
+	height:Opx;margin:10px 0 30px 0;
+	text-align: center;
+	background:grey ;
+	}
+.right_content1 h1{
+	float:left;
+	margin-left:30px;
+	color:grey;
+	font-size:40px
+	} 
+
+.right{
+	float:right;
+	width:1200px;
+	_border:1px solid blue
+	}
+.right_content1{
+	float:right;
+	width:1200px;
+	height:200px;
+	margin-top:10px;
+	background:#edeef0
+	}
+
+.left{
+	float:left;
+	width:330px;
+	margin:10px 0 0 20px;
+	}
+#mb{
+	float:left;
+	width:330px;
+	height:400px;
+	margin:10px 0 0 20px;
+	margin-bottom:10px;
+	background:#edeef0	
+	-border-radius:700px	
+	}
+
+.left_content2{
+	float:left;
+	width:330px;
+	height:620px;
+	margin-bottom:10px;
+	background:#edeef0;
+	-border:1px dotted red;
+	_border-radius:700px
+	}
+.left_content7{
+	text-align: center;
+	width:100px;
+	height:50px;	
+	margin: 80px 0 0 110px;
+	background:#6d6d6d;
+	}
+
+</style>
+
+<meta charset="UTF-8">
+<title>소모임 만들기</title>
+</head>
+
+<body>
+<form action = "">
+<div class="flex-container">
+
+<header class="header">
+	<h1>소모임 만들기</h1>
+</header>
+   </div>    
+        <div class="right">
+            <div class="right_content1">
+				<h1>image</h1>
+            </div>
+            <div class="right_content1">
+				<h1>뉴스피드</h1>
+            </div>
+            <div class="right_content1">
+				<h1>미리보기</h1>
+            </div>
+            <div class="right_content1">
+				<h1>image</h1>
+            </div>
+            <div class="right_content1">
+            </div>
+        </div>
+		<div class="left_content2" id="mb">
+				소모임 정보
+            </div>
+        <div class="left">
+            <div class="left_content2">
+				<div class="left_content7" >
+					게시판
+				</div>
+				<div class="left_content7" >
+					일정
+				</div>
+				<div class="left_content7" >
+					사진첩
+				</div>
+				<div class="left_content7">
+					대화방
+				</div>
+            </div>
+        </div>
+
+<footer class ="footer">
+	<h3>made by SFACE</h3>
+</footer>
+	</div>
+	</form>
+</body>
+</html>
