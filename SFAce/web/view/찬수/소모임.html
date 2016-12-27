@@ -2,20 +2,9 @@
 <html>
 <head>
 <style>
-
-
-.flex-container {
-    display: -webkit-flex;
-    display: flex;  
-    -webkit-flex-flow: row wrap;
-    flex-flow: row wrap;
-    text-align: center;
+.wrap{
+	min-width : 100px;
 }
-.flex-container > * {
-    padding: 15px;
-    -webkit-flex: 1 100%;
-    flex: 1 100%;
-	}
 .header{
 	height :50px;
  	text-align: left;
@@ -51,13 +40,13 @@
 .left{
 	float:left;
 	width:330px;
-	margin:10px 0 0 20px;
+	margin:10px 0 0 0;
 	}
 #mb{
 	float:left;
 	width:330px;
 	height:400px;
-	margin:10px 0 0 20px;
+	margin:10px 0 0 0;
 	margin-bottom:10px;
 	background:#edeef0	
 	-border-radius:700px	
@@ -87,7 +76,7 @@
 </head>
 
 <body>
-<form action = "">
+<form class ="wrap">
 <div class="flex-container">
 
 <header class="header">
@@ -132,8 +121,7 @@
 
 <footer class ="footer">
 	<h3>made by SFACE</h3>
-</footer>
-	</div>
+</footer>	
 	</form>
 </body>
 </html>
