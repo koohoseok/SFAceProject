@@ -1,7 +1,9 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <link rel="stylesheet"
@@ -92,6 +94,7 @@
 }
 
 
+
 </style>
 <title>스킨 선택</title>
 </head>
@@ -102,9 +105,9 @@
       <a class="navbar-brand" >페이지 설정</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="/semi/view/용철/choiceSkin.html">스킨 설정</a></li>
-      <li><a href="/semi/view/용철/choiceLayout.jsp">레이아웃 설정</a></li>
-    </ul>
+      <li><a href="/semi/view/용철/choiceSkin.html">스킨 설정</a></li>
+      <li class="active"><a href="/semi/view/용철/choiceLayout.jsp">레이아웃 설정</a></li>
+    </ul> 
   </div>
 </nav>
 	<form id="choiceSkin" action="" method="post">
