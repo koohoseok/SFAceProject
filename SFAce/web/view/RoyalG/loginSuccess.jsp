@@ -18,7 +18,7 @@
 <body>
 	<div id="top">
 		<div id="logo">
-		<h1><a href="../../index.html">S.F.Ace</a></h1>
+		<h1><a href="#">S.F.Ace</a></h1>
 		</div>
 		<div id="regi">
 			<%= loginUser.getUserName() %> 님 환영합니다.<br>

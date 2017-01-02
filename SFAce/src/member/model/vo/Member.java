@@ -84,6 +84,5 @@ public class Member {
 	public String toString(){
 		return this.userId+", "+this.userPwd+", "+this.userName+", "+this.email+", "+
 				", "+this.gender+", "+this.hobby;
-		
 	}
 }

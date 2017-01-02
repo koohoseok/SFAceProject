@@ -11,7 +11,7 @@
 	</script>
 </head>
 
-	<h2><a href="view/송이/board.html">게시판설정</a></h2>
+	<!-- <h2><a href="view/송이/board.html">게시판설정</a></h2> -->
 	<div id="top">
 		<div id="logo">
 		<h1><a href="#">S.F.Ace</a></h1>
