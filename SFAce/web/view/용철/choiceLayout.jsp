@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -92,29 +92,37 @@
 #skinnum {
 	visibility: hidden;
 }
-
-
-
 </style>
 <title>스킨 선택</title>
 </head>
 <body>
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" >페이지 설정</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li><a href="/semi/view/용철/choiceSkin.html">스킨 설정</a></li>
-      <li class="active"><a href="/semi/view/용철/choiceLayout.jsp">레이아웃 설정</a></li>
-    </ul> 
-  </div>
-</nav>
+	<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand">페이지 설정</a>
+		</div>
+		<ul class="nav navbar-nav">
+			<li><a href="/semi/view/용철/choiceSkin.html">스킨 설정</a></li>
+			<li class="active"><a href="/semi/view/용철/choiceLayout.jsp">레이아웃
+					설정</a></li>
+		</ul>
+	</div>
+	</nav>
 	<form id="choiceSkin" action="" method="post">
 		<div class="container-fluid-skin">
+			<div class="row-fluid-top">
+				<div class="col-md-2">
+					<h4>미리보기</h4>
+				</div>
+				<div class="col-md-2 submit">
+					<button type="button" class="btn btn-default" id="button1">적용하기</button>
+				</div>
+				<div class="col-md-2">
+				<input type="text" name="skinnum" id="skinnum">
+				</div>
+			</div>
 			<div class="row-fluid-middle-image">
 				<div class="col-lg-8 image">
-					<h3>미리보기</h3>
 					<ul class="bxslider">
 						<li><img src="../../images/용철/730_200/배경화면1.jpg" /></li>
 						<li><img src="../../images/용철/730_200/배경화면2.jpg" /></li>
@@ -135,14 +143,6 @@
 							src="/semi/images/용철/thumbs/t-배경화면4.jpg" /></a>
 					</div>
 				</div>
-			</div>
-			<div class="row-fluid-middle-submit">
-				<div class="col-lg-offset-6 col-lg-3 submit">
-					<button type="button" class="btn btn-default" id="button1">적용하기</button>
-				</div>
-			</div>
-			<div class="row-fluid-footer">
-				<div class="col-lg-10 footer">FOOT</div>
 			</div>
 			<input type="text" name="skinnum" id="skinnum">
 		</div>
