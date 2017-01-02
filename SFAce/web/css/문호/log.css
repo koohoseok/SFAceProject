@@ -11,7 +11,7 @@
 			font-size : 15pt;
 		}
 #regi {
-			margin-top : 20px;
+			margin-top : 30px;
 			claer : left;
 			float : right;
 			height : 50px;
@@ -22,6 +22,9 @@
 		}
 #reg {
 			width : 198px;
+		}
+#logout {
+			width : 125px;
 		}
 #mid {
 			width : 100%;

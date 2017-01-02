@@ -1,9 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="member.model.vo.Member"%>
+    
+<%
+	Member loginUser = (Member)session.getAttribute("loginUser");
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>S.F.Ace 에 어서오세요</title>
-</head>
 <link rel="stylesheet" type="text/css" href="../../css/문호/log.css" />
 	<script type="text/javascript">
 	
@@ -14,7 +20,10 @@
 		<div id="logo">
 		<h1><a href="../../index.html">S.F.Ace</a></h1>
 		</div>
-		
+		<div id="regi">
+			<%= loginUser.getUserName() %> 님 환영합니다.<br>
+			<a href="/semi/logout"><input type="button" value="로그아웃" id="logout"></a>
+		</div>
 	</div>
 	<hr>
 	<div id="mid">
@@ -35,5 +44,6 @@
 	<hr>
 	<br>copyright©24/7
 	</div>
+</body>
 </body>
 </html>
