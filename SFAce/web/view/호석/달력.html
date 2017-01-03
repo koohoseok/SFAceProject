@@ -3,12 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <title>달력만들기</title>
+
 <script type="text/javascript" src="../../jQuery/jquery-3.1.1.min.js"></script>
 <style type="text/css">    
 		table{
 			width: 
 		}
-		          
+	/* 	          
         .d_day {
             background: white;
             color: darkblue;
@@ -16,6 +17,7 @@
             font-weight: bold;
             border: 2px solid darkblue;
         }      
+         */
 </style>
 <script type="text/javascript">
 	var Calendar = new Date();
@@ -29,17 +31,20 @@
 	Calendar.setDate(1);  	
 	
  	$(document).ready(function(){		// 이번달 달력이 기본으로 출력
-		/* var j = 0;
+		var j = 0;
 		
 		for(var i = 0; i < Calendar.getDay()+1; ++i) {	    
-	    	$("#a td").eq(i+7).text("0");
+	    	$("#a td").eq(i+7).text(" ");
 	    	j=i;
 		}	// 1일 전 구하기
 		
 		for(var i = j; i< (lastday+j); i++){
 			$("#a td").eq(i+7).text(i-j+1);
-			if(today == $("#a td").eq(i+7).text())
-				$("#a td").eq(i+7).addClass("d_day");			
+			if(today == $("#a td").eq(i+7).text()){
+				$("#a td").eq(i+7).addClass("d_day");
+				$(".d_day").css("background","yellow");
+			}
+			
 		}	// 날짜 구하기		
 									
 		$("#a td").eq("7").click(function(){
@@ -50,51 +55,65 @@
 			alert(month+"월 "+ $("#a td").eq("8").text()+"일 입니다.")
 		});				
 		
-		$("#year").text(year+"년 "+month+"월 ");		
-		 */
-	
- 		$("#b2").click(function(){	//이번달 달력 구하기
- 			
- 			/* var j = 0;
- 			
- 			$("#year").text(year+"년 "+month+"월 ");	
- 			
- 			for(var i = 0; i < Calendar.getDay()+1; ++i) {	    
- 		    	$("#a td").eq(i+7).text("");
- 		    	j=i;
- 			}	// 1일 전 구하기
- 			
- 			for(var i = j; i< (lastday+j); i++){
- 				$("#a td").eq(i+7).text(i-j+1);
- 				if(today == $("#a td").eq(i+7).text())
- 					$("#a td").eq(i+7).addClass("d_day");			
- 			}	// 날짜 구하기		 */
- 			now_m();
- 		});		 
+		$("#year").text(year+"년 "+month+"월 ");	 
+		 
+					
+		$("#a td").mouseenter(function(){
+			$(this).css("background","red");
+		});
+		
+		$("#a td").mouseleave(function(){
+			$(this).css("background","#ffffee");
+						
+		});
+		
+		$("#a td").click(function(){
+			if($(this).text()!=""&& $(this).text() < 32){
+				alert(year+"년 "+ month+"월 "+ $(this).text() +"일");
+			}
+		}); 
+		
 	}); 
-	
+ 	
+ 		
  	function now_m(){	//이번달
 				
 		var j = 0;
+ 		var monlast=0;
+ 		var clicked_day= new Array();
 		
 		$("#year").text(year+"년 "+month+"월 ");	
 		
 		for(var i = 0; i < Calendar.getDay()+1; ++i) {	    
-	    	$("#a td").eq(i+7).text("");
+	    	$("#a td").eq(i+7).text(" ");
 	    	j=i;
 		}	// 1일 전 구하기
 		
 		for(var i = j; i< (lastday+j); i++){
 			$("#a td").eq(i+7).text(i-j+1);
-			if(today == $("#a td").eq(i+7).text())
-				$("#a td").eq(i+7).addClass("d_day");			
-		}	// 날짜 구하기		 
+			if(today == $("#a td").eq(i+7).text()){
+				$("#a td").eq(i+7).addClass("d_day");	
+				$(".d_day").css("background","yellow");
+				$(".d_day_next").css("background","#ffffee");
+				$(".d_day_before").css("background","#ffffee");
+				clicked_day = i;
+			}
+			monlast=i;
+		}	// 날짜 구하기	
+		
+		for(var i = monlast+1; i < 42; ++i) {	    
+	    	$("#a td").eq(i+7).text(" ");
+		}	// 마지막날 이후 구하기
+		
+		
 	}
+ 	 
+ 	
 	
 	function before_m(){	//이전달
 		var cal = new Date();//오늘 날짜를 기준으루..
 		cal.setDate(0);		
-
+		var monlast=0;
 		// 현재 달의 전달의 마지막 일
 		var y = cal.getFullYear();  
 		var m = cal.getMonth()+1;   
@@ -102,16 +121,36 @@
 
 		$("#year").text(y+"년 "+m+"월 ");	
 		
-		var num = 42-d;	//시작 일의 th 번째수
+		var num = 42-d;	//시작 일의 th번째수
 		var num_day = 1;	
+		
+		for(var i = 0; i < num; ++i) {	    
+	    	$("#a td").eq(i+7).text(" ");
+		}	
+		
 		for(var i = num; i < d+11; i++){
 			$("#a td").eq(i).text(num_day);
+			if(today == $("#a td").eq(i).text()){
+				$("#a td").eq(i).addClass("d_day_before");
+				$(".d_day").css("background","#ffffee");
+				$(".d_day_next").css("background","#ffffee");
+				$(".d_day_before").css("background","yellow");
+			}
 			num_day++;
+			monlast=i;
 		}
+		
+		for(var i = monlast+1; i < 42; ++i) {	    
+	    	$("#a td").eq(i+7).text(" ");
+		}	// 마지막날 이후 구하기
+		
+		
+		return false;
 	}
 	
 	function after_m(){	//다음달
-		var cal = new Date();
+		var cal = new Date();	
+		var monlast=0;
 		
 		var lastday = (new Date(year, month, 0)).getDate();	//이번달 마지막날
 		cal.setDate(lastday+1);	//다음달 1일
@@ -124,27 +163,37 @@
 		$("#year").text(y+"년 "+m+"월 ");	
 		
 		for(var i = 0; i < cal.getDay()+1; ++i) {	    
-	    	$("#a td").eq(i+7).text("");
+	    	$("#a td").eq(i+7).text(" ");
 	    	j=i;
 		}	// 1일 전 구하기
 		
 		for(var i = j; i< (last+j); i++){
-			$("#a td").eq(i+7).text(i-j+1);		
-		}	// 날짜 구하기				
+			$("#a td").eq(i+7).text(i-j+1);	
+			if(today == $("#a td").eq(i+7).text()){
+				$("#a td").eq(i+7).addClass("d_day_next");
+				$(".d_day").css("background","#ffffee");
+				$(".d_day_before").css("background","#ffffee");
+				$(".d_day_next").css("background","yellow");
+			}
+			monlast=i;
+		}	// 날짜 구하기		
+		
+		for(var i = monlast+1; i < 42; ++i) {	    
+	    	$("#a td").eq(i+7).text(" ");
+		}	// 마지막날 이후 구하기
 	}
 	
 	
-	
+		
 </script>
-</head>
+	
 <body>
 	<br>
-	<form action="" method="get">
 		<div>
 		<table id="a" cellspacing="2" border="3px" width ="500px" hieght="400px" style='background:#ffffee;'>
 			<h2 id="year">년 월 입력</h2>
 			
-			<tr width="50px" height="50px" style='text-align:center;background:#bbaaaa;'>
+			<tr width="50px" height="50px" class="week" style='text-align:center;background:#bbaaaa;'>
 				<td>일</td>
 				<td>월</td>
 				<td>화</td>
@@ -153,7 +202,16 @@
 				<td>금</td>
 				<td>토</td>
 			</tr>
-			<tr width="50px" height="50px" style='text-align: center'>
+			<tr width="50px" height="50px" class="week" style='text-align: center'>
+				<td id="first"></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr width="50px" height="50px" class="week" style='text-align: center'>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -162,7 +220,7 @@
 				<td></td>
 				<td></td>
 			</tr>
-			<tr width="50px" height="50px" style='text-align: center'>
+			<tr width="50px" height="50px" class="week" style='text-align: center'>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -171,7 +229,7 @@
 				<td></td>
 				<td></td>
 			</tr>
-			<tr width="50px" height="50px" style='text-align: center'>
+			<tr  width="50px" height="50px" class="week" style='text-align: center'>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -180,16 +238,7 @@
 				<td></td>
 				<td></td>
 			</tr>
-			<tr width="50px" height="50px" style='text-align: center'>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tr width="50px" height="50px" style='text-align: center'>
+			<tr  width="50px" height="50px" class="week" style='text-align: center'>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -201,10 +250,9 @@
 		</table>
 		</div><br>
 		
-		<button id="b1" onclick="before_m()">이전 달</button> &nbsp;
-		<button id="b2" class = "bt2">현재</button> &nbsp;
+		<button id="b1" onclick="before_m()" >이전 달</button> &nbsp;
+		<button id="b2" onclick = "now_m()">현재</button> &nbsp;
 		<button id="b3" onclick="after_m()">다음달</button> &nbsp;
 		
-	</form>
 </body>
 </html>
