@@ -18,6 +18,10 @@
             border: 2px solid darkblue;
         }      
          */
+         .mon_day{
+         	text-align: left;
+         	margin-top: 0px; 
+       }
 </style>
 <script type="text/javascript">
 	var Calendar = new Date();
@@ -31,33 +35,25 @@
 	Calendar.setDate(1);  	
 	
  	$(document).ready(function(){		// 이번달 달력이 기본으로 출력
+ 		$("#year").text(year+"년 "+month+"월 ");	//현재 연도와 월을 출력
 		var j = 0;
 		
 		for(var i = 0; i < Calendar.getDay()+1; ++i) {	    
-	    	$("#a td").eq(i+7).text(" ");
+	    	$("#a td.mon_day").eq(i).text(" ");
 	    	j=i;
 		}	// 1일 전 구하기
 		
 		for(var i = j; i< (lastday+j); i++){
-			$("#a td").eq(i+7).text(i-j+1);
-			if(today == $("#a td").eq(i+7).text()){
-				$("#a td").eq(i+7).addClass("d_day");
-				$(".d_day").css("background","yellow");
+			$("#a td.mon_day").eq(i).text(i-j+1);
+			 		
+		}	// 날짜 구하기
+		
+		for(var i =0; i < lastday ; i++){	
+			if(today == $("#a td.mon_day").eq(i).text()){
+				$("#a td.mon_day").eq(i).css("background","yellow");
 			}
-			
-		}	// 날짜 구하기		
-									
-		$("#a td").eq("7").click(function(){
-			alert(month+"월 "+ $("#a td").eq("7").text()+"일 입니다.")
-		});		
+		}	//오늘 날자 구하기	
 		
-		$("#a td").eq("8").click(function(){
-			alert(month+"월 "+ $("#a td").eq("8").text()+"일 입니다.")
-		});				
-		
-		$("#year").text(year+"년 "+month+"월 ");	 
-		 
-					
 		$("#a td").mouseenter(function(){
 			$(this).css("background","red");
 		});
@@ -68,14 +64,15 @@
 		});
 		
 		$("#a td").click(function(){
-			if($(this).text()!=""&& $(this).text() < 32){
+			if($(this).text()!="" && $(this).text() < 32){
 				alert(year+"년 "+ month+"월 "+ $(this).text() +"일");
 			}
+			pop();
 		}); 
 		
 	}); 
  	
- 		
+ 	
  	function now_m(){	//이번달
 				
 		var j = 0;
@@ -190,10 +187,10 @@
 <body>
 	<br>
 		<div>
-		<table id="a" cellspacing="2" border="3px" width ="500px" hieght="400px" style='background:#ffffee;'>
+		<table id="a" cellspacing="2" border="3px" width ="700px" hieght="700px" style='background:#ffffee;'>
 			<h2 id="year">년 월 입력</h2>
 			
-			<tr width="50px" height="50px" class="week" style='text-align:center;background:#bbaaaa;'>
+			<tr height=100px class="week" style='text-align:center;background:#bbaaaa;'>
 				<td>일</td>
 				<td>월</td>
 				<td>화</td>
@@ -202,50 +199,56 @@
 				<td>금</td>
 				<td>토</td>
 			</tr>
-			<tr width="50px" height="50px" class="week" style='text-align: center'>
-				<td id="first"></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+			<tr height=100px class="week" style='text-align: center'>
+				
+					<div class="p1"><td class="mon_day"></td></div>
+					<div class="p2"></div>
+				
+				<td class="mon_day"></td>
+				<td class="mon_day"></td>
+				<td class="mon_day"></td>
+				<td class="mon_day"></td>
+				<td class="mon_day"></td>
+				<td class="mon_day"></td>
 			</tr>
-			<tr width="50px" height="50px" class="week" style='text-align: center'>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+			<tr height=100px class="week" style='text-align: center'>
+				<td class="mon_day"></td>
+				<td class="mon_day"></td>
+				<td class="mon_day"></td>
+				<td class="mon_day"></td>
+				<td class="mon_day"></td>
+				<td class="mon_day"></td>
+				<td class="mon_day"></td>				
 			</tr>
-			<tr width="50px" height="50px" class="week" style='text-align: center'>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+			<tr height=100px class="week" style='text-align: center'>
+				<td class="mon_day"></td>
+				<td class="mon_day"></td>
+				<td class="mon_day"></td>
+				<td class="mon_day"></td>
+				<td class="mon_day"></td>
+				<td class="mon_day"></td>
+				<td class="mon_day"></td>
+				
 			</tr>
-			<tr  width="50px" height="50px" class="week" style='text-align: center'>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+			<tr height=100px class="week" style='text-align: center'>
+				<td class="mon_day"></td>
+				<td class="mon_day"></td>
+				<td class="mon_day"></td>
+				<td class="mon_day"></td>
+				<td class="mon_day"></td>
+				<td class="mon_day"></td>
+				<td class="mon_day"></td>
+				
 			</tr>
-			<tr  width="50px" height="50px" class="week" style='text-align: center'>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
+			<tr height=100px class="week" style='text-align: center'>
+				<td class="mon_day"></td>
+				<td class="mon_day"></td>
+				<td class="mon_day"></td>
+				<td class="mon_day"></td>
+				<td class="mon_day"></td>
+				<td class="mon_day"></td>
+				<td class="mon_day"></td>
+				
 			</tr>		
 		</table>
 		</div><br>
