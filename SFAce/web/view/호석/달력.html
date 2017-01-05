@@ -77,27 +77,29 @@
 			 		
 		}	// 날짜 구하기
 		
-		for(var i =0; i < lastday ; i++){	
+		/* for(var i =0; i < lastday ; i++){	
 			if(today == $("#a td.mon_day").eq(i).text()){
 				$("#a td.mon_day").eq(i).css("background","yellow");
 			}
 		}	//오늘 날자 구하기	
-		
-		 $("#a td").mouseenter(function(){
-			$(this).css("border","solid");
+		 */
+		$("#a td.mon_day").mouseenter(function(){
+			$(this).css("background","gray");
 		});
 		
-		$("#a td").mouseleave(function(){
-			$(this).css("border","");						
+		$("#a td.mon_day").mouseleave(function(){
+			$(this).css("background","");						
 		}); 
 		
 		$("#a td").click(function(){
 			if($(this).text()!="" && $(this).text() < 32){
 				alert(year+"년 "+ month+"월 "+ $(this).text() +"일");
 			}
-			$(".main_pop").show();
 			
 		}); 
+		$("#a td.mon_day").click(function(){
+			$(".main_pop").show();
+		})
 		
 	}); 
  	
@@ -239,178 +241,113 @@
 	<br>
 		<div>
 		<table id="a" cellspacing="0" border="3px" width ="700px" hieght="700px" style='background:#ffffee;'>
-			<h2 id="year">년 월 입력</h2>
+			<center><h1 id="year">년 월 입력</h1></center>
 			
 			<tr height=100px class="week" style='text-align:center;background:#bbaaaa;'>
-				<td colspan=2>일</td>
-				<td colspan=2>월</td>
-				<td colspan=2>화</td>
-				<td colspan=2>수</td>
-				<td colspan=2>목</td>
-				<td colspan=2>금</td>
-				<td colspan=2>토</td>
+				<td >일</td>
+				<td >월</td>
+				<td >화</td>
+				<td >수</td>
+				<td >목</td>
+				<td >금</td>
+				<td >토</td>
 			</tr>
 			<tr height=20px class="week" style='text-align: center'>
 				
+				<td class="mon_day"></td>					
+				<td class="mon_day"></td>								
+				<td class="mon_day"></td>								
 				<td class="mon_day"></td>
-				<td></td>
-							
+				<td class="mon_day"></td>							
+				<td class="mon_day"></td>				
 				<td class="mon_day"></td>
-				<td></td>
-				
-				<td class="mon_day"></td>
-				<td></td>
-				
-				<td class="mon_day"></td>
-				<td></td>
-				
-				<td class="mon_day"></td>
-				<td></td>
-				
-				<td class="mon_day"></td>
-				<td></td>
-				
-				<td class="mon_day"></td>
-				<td></td>
 			</tr>
 			<tr height=100px class="week" style='text-align: center'>
-				<td colspan=2></td>
-				<td colspan=2></td>
-				<td colspan=2></td>
-				<td colspan=2></td>
-				<td colspan=2></td>
-				<td colspan=2></td>
-				<td colspan=2></td>		
+				<td ></td>
+				<td ></td>
+				<td ></td>
+				<td ></td>
+				<td ></td>
+				<td ></td>
+				<td ></td>		
 			</tr>
 			<tr height=20px class="week" style='text-align: center'>
+				<td class="mon_day"></td>					
+				<td class="mon_day"></td>								
+				<td class="mon_day"></td>								
 				<td class="mon_day"></td>
-				<td></td>
-								
+				<td class="mon_day"></td>							
+				<td class="mon_day"></td>				
 				<td class="mon_day"></td>
-				<td></td>
-				
-				<td class="mon_day"></td>
-				<td></td>
-				
-				<td class="mon_day"></td>
-				<td></td>
-				
-				<td class="mon_day"></td>
-				<td></td>
-				
-				<td class="mon_day"></td>
-				<td></td>
-				
-				<td class="mon_day"></td>
-				<td></td>			
 			</tr>
 			<tr height=100px class="week" style='text-align: center'>
-				<td colspan=2></td>
-				<td colspan=2></td>
-				<td colspan=2></td>
-				<td colspan=2></td>
-				<td colspan=2></td>
-				<td colspan=2></td>
-				<td colspan=2></td>		
+				<td ></td>
+				<td ></td>
+				<td ></td>
+				<td ></td>
+				<td ></td>
+				<td ></td>
+				<td ></td>		
 			</tr>
 			<tr height=20px class="week" style='text-align: center'>
+				<td class="mon_day"></td>					
+				<td class="mon_day"></td>								
+				<td class="mon_day"></td>								
 				<td class="mon_day"></td>
-				<td></td>
-								
+				<td class="mon_day"></td>							
+				<td class="mon_day"></td>				
 				<td class="mon_day"></td>
-				<td></td>
-				
-				<td class="mon_day"></td>
-				<td></td>
-				
-				<td class="mon_day"></td>
-				<td></td>
-				
-				<td class="mon_day"></td>
-				<td></td>
-				
-				<td class="mon_day"></td>
-				<td></td>
-				
-				<td class="mon_day"></td>
-				<td></td>
 				
 			</tr>
 			<tr height=100px class="week" style='text-align: center'>
-				<td colspan=2></td>
-				<td colspan=2></td>
-				<td colspan=2></td>
-				<td colspan=2></td>
-				<td colspan=2></td>
-				<td colspan=2></td>
-				<td colspan=2></td>		
+				<td ></td>
+				<td ></td>
+				<td ></td>
+				<td ></td>
+				<td ></td>
+				<td ></td>
+				<td ></td>		
 			</tr>
 			<tr height=20px class="week" style='text-align: center'>
+				<td class="mon_day"></td>					
+				<td class="mon_day"></td>								
+				<td class="mon_day"></td>								
 				<td class="mon_day"></td>
-				<td></td>
-								
+				<td class="mon_day"></td>							
+				<td class="mon_day"></td>				
 				<td class="mon_day"></td>
-				<td></td>
-				
-				<td class="mon_day"></td>
-				<td></td>
-				
-				<td class="mon_day"></td>
-				<td></td>
-				
-				<td class="mon_day"></td>
-				<td></td>
-				
-				<td class="mon_day"></td>
-				<td></td>
-				
-				<td class="mon_day"></td>
-				<td></td>
 				
 			</tr>
 			
 			<tr height=100px class="week" style='text-align: center'>
-				<td colspan=2></td>
-				<td colspan=2></td>
-				<td colspan=2></td>
-				<td colspan=2></td>
-				<td colspan=2></td>
-				<td colspan=2></td>
-				<td colspan=2></td>		
+				<td ></td>
+				<td ></td>
+				<td ></td>
+				<td ></td>
+				<td ></td>
+				<td ></td>
+				<td ></td>		
 			</tr>
 			
 			<tr height=20px class="week" style='text-align: center'>
+				<td class="mon_day"></td>					
+				<td class="mon_day"></td>								
+				<td class="mon_day"></td>								
 				<td class="mon_day"></td>
-				<td></td>
-								
+				<td class="mon_day"></td>							
+				<td class="mon_day"></td>				
 				<td class="mon_day"></td>
-				<td></td>
-				
-				<td class="mon_day"></td>
-				<td></td>
-				
-				<td class="mon_day"></td>
-				<td></td>
-				
-				<td class="mon_day"></td>
-				<td></td>
-				
-				<td class="mon_day"></td>
-				<td></td>
-				
-				<td class="mon_day"></td>
-				<td></td>
 				
 			</tr>		
 			
 			<tr height=100px class="week" style='text-align: center'>
-				<td colspan=2></td>
-				<td colspan=2></td>
-				<td colspan=2></td>
-				<td colspan=2></td>
-				<td colspan=2></td>
-				<td colspan=2></td>
-				<td colspan=2></td>		
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>		
 			</tr>
 		</table>
 		</div><br>
