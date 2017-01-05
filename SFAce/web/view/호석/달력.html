@@ -5,9 +5,33 @@
 <title>달력만들기</title>
 
 <script type="text/javascript" src="../../jQuery/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <style type="text/css">    
 		table{
 			width: 
+		}
+		.main_pop{
+			width:300px;
+			height:300px;
+			background: white;
+			position:absolute; top:200px;left:180px;
+			border: 3px solid black;
+			display: none;
+		}
+		#close{
+			width:50px;
+			height:30px;
+			background: white;
+			border: 3px solid red;
+			position:absolute; top:0px;left:250px;
+			resize: none;
+		}
+		#contents{
+			margin-left: 2px;
+			}
+		.tx{
+			resize: none;
+			border:0px
 		}
 	/* 	          
         .d_day {
@@ -24,6 +48,7 @@
        }
 </style>
 <script type="text/javascript">
+
 	var Calendar = new Date();
 	
 	var year = Calendar.getFullYear();   // yyyy   년도
@@ -35,6 +60,10 @@
 	Calendar.setDate(1);  	
 	
  	$(document).ready(function(){		// 이번달 달력이 기본으로 출력
+ 		$("#close").click(function(){
+ 			$("#pop").hide();
+ 		});
+ 	
  		$("#year").text(year+"년 "+month+"월 ");	//현재 연도와 월을 출력
 		var j = 0;
 		
@@ -54,28 +83,49 @@
 			}
 		}	//오늘 날자 구하기	
 		
-		$("#a td").mouseenter(function(){
-			$(this).css("background","red");
+		 $("#a td").mouseenter(function(){
+			$(this).css("border","solid");
 		});
 		
 		$("#a td").mouseleave(function(){
-			$(this).css("background","#ffffee");
-						
-		});
+			$(this).css("border","");						
+		}); 
 		
 		$("#a td").click(function(){
 			if($(this).text()!="" && $(this).text() < 32){
 				alert(year+"년 "+ month+"월 "+ $(this).text() +"일");
 			}
-			pop();
+			$(".main_pop").show();
+			
 		}); 
 		
 	}); 
  	
  	
  	function now_m(){	//이번달
-				
-		var j = 0;
+ 		var monlast = 0;
+ 		for(var i = 0; i < Calendar.getDay()+1; ++i) {	    
+	    	$("#a td.mon_day").eq(i).text(" ");
+	    	j=i;
+		}	// 1일 전 구하기
+		
+		for(var i = j; i< (lastday+j); i++){
+			$("#a td.mon_day").eq(i).text(i-j+1);
+			 		
+		}	// 날짜 구하기
+		
+		for(var i =0; i < lastday ; i++){	
+			if(today == $("#a td.mon_day").eq(i).text()){
+				$("#a td.mon_day").eq(i).css("background","yellow");
+			}
+			monlast=i
+		}
+		
+		for(var i = monlast+1; i < 35; ++i) {	    
+	    	$("#a td.mon_day").eq(i).text(" ");
+		}	// 마지막날 이후 구하기
+		
+		/* var j = 0;
  		var monlast=0;
  		var clicked_day= new Array();
 		
@@ -88,6 +138,7 @@
 		
 		for(var i = j; i< (lastday+j); i++){
 			$("#a td").eq(i+7).text(i-j+1);
+			
 			if(today == $("#a td").eq(i+7).text()){
 				$("#a td").eq(i+7).addClass("d_day");	
 				$(".d_day").css("background","yellow");
@@ -101,7 +152,7 @@
 		for(var i = monlast+1; i < 42; ++i) {	    
 	    	$("#a td").eq(i+7).text(" ");
 		}	// 마지막날 이후 구하기
-		
+ */		
 		
 	}
  	 
@@ -118,27 +169,27 @@
 
 		$("#year").text(y+"년 "+m+"월 ");	
 		
-		var num = 42-d;	//시작 일의 th번째수
+		var num = 35-d;	//시작 일의 th번째수
 		var num_day = 1;	
 		
 		for(var i = 0; i < num; ++i) {	    
-	    	$("#a td").eq(i+7).text(" ");
+	    	$("#a td.mon_day").eq(i).text(" ");
 		}	
 		
-		for(var i = num; i < d+11; i++){
-			$("#a td").eq(i).text(num_day);
-			if(today == $("#a td").eq(i).text()){
+		for(var i = num; i < d+4; i++){
+			$("#a td.mon_day").eq(i).text(num_day);
+			/* if(today == $("#a td").eq(i).text()){
 				$("#a td").eq(i).addClass("d_day_before");
 				$(".d_day").css("background","#ffffee");
 				$(".d_day_next").css("background","#ffffee");
 				$(".d_day_before").css("background","yellow");
-			}
+			} */
 			num_day++;
 			monlast=i;
 		}
 		
-		for(var i = monlast+1; i < 42; ++i) {	    
-	    	$("#a td").eq(i+7).text(" ");
+		for(var i = monlast+1; i < 35; ++i) {	    
+	    	$("#a td.mon_day").eq(i).text(" ");
 		}	// 마지막날 이후 구하기
 		
 		
@@ -160,23 +211,23 @@
 		$("#year").text(y+"년 "+m+"월 ");	
 		
 		for(var i = 0; i < cal.getDay()+1; ++i) {	    
-	    	$("#a td").eq(i+7).text(" ");
+	    	$("#a td.mon_day").eq(i).text(" ");
 	    	j=i;
 		}	// 1일 전 구하기
 		
 		for(var i = j; i< (last+j); i++){
-			$("#a td").eq(i+7).text(i-j+1);	
-			if(today == $("#a td").eq(i+7).text()){
+			$("#a td.mon_day").eq(i).text(i-j+1);	
+			/* if(today == $("#a td").eq(i).text()){
 				$("#a td").eq(i+7).addClass("d_day_next");
 				$(".d_day").css("background","#ffffee");
 				$(".d_day_before").css("background","#ffffee");
 				$(".d_day_next").css("background","yellow");
-			}
+			} */
 			monlast=i;
 		}	// 날짜 구하기		
 		
-		for(var i = monlast+1; i < 42; ++i) {	    
-	    	$("#a td").eq(i+7).text(" ");
+		for(var i = monlast+1; i < 35; ++i) {	    
+	    	$("#a td.mon_day").eq(i).text(" ");
 		}	// 마지막날 이후 구하기
 	}
 	
@@ -187,69 +238,180 @@
 <body>
 	<br>
 		<div>
-		<table id="a" cellspacing="2" border="3px" width ="700px" hieght="700px" style='background:#ffffee;'>
+		<table id="a" cellspacing="0" border="3px" width ="700px" hieght="700px" style='background:#ffffee;'>
 			<h2 id="year">년 월 입력</h2>
 			
 			<tr height=100px class="week" style='text-align:center;background:#bbaaaa;'>
-				<td>일</td>
-				<td>월</td>
-				<td>화</td>
-				<td>수</td>
-				<td>목</td>
-				<td>금</td>
-				<td>토</td>
+				<td colspan=2>일</td>
+				<td colspan=2>월</td>
+				<td colspan=2>화</td>
+				<td colspan=2>수</td>
+				<td colspan=2>목</td>
+				<td colspan=2>금</td>
+				<td colspan=2>토</td>
 			</tr>
-			<tr height=100px class="week" style='text-align: center'>
-				
-					<div class="p1"><td class="mon_day"></td></div>
-					<div class="p2"></div>
+			<tr height=20px class="week" style='text-align: center'>
 				
 				<td class="mon_day"></td>
+				<td></td>
+							
 				<td class="mon_day"></td>
+				<td></td>
+				
 				<td class="mon_day"></td>
+				<td></td>
+				
 				<td class="mon_day"></td>
+				<td></td>
+				
 				<td class="mon_day"></td>
+				<td></td>
+				
 				<td class="mon_day"></td>
+				<td></td>
+				
+				<td class="mon_day"></td>
+				<td></td>
 			</tr>
 			<tr height=100px class="week" style='text-align: center'>
+				<td colspan=2></td>
+				<td colspan=2></td>
+				<td colspan=2></td>
+				<td colspan=2></td>
+				<td colspan=2></td>
+				<td colspan=2></td>
+				<td colspan=2></td>		
+			</tr>
+			<tr height=20px class="week" style='text-align: center'>
 				<td class="mon_day"></td>
+				<td></td>
+								
 				<td class="mon_day"></td>
+				<td></td>
+				
 				<td class="mon_day"></td>
+				<td></td>
+				
 				<td class="mon_day"></td>
+				<td></td>
+				
 				<td class="mon_day"></td>
+				<td></td>
+				
 				<td class="mon_day"></td>
-				<td class="mon_day"></td>				
+				<td></td>
+				
+				<td class="mon_day"></td>
+				<td></td>			
 			</tr>
 			<tr height=100px class="week" style='text-align: center'>
+				<td colspan=2></td>
+				<td colspan=2></td>
+				<td colspan=2></td>
+				<td colspan=2></td>
+				<td colspan=2></td>
+				<td colspan=2></td>
+				<td colspan=2></td>		
+			</tr>
+			<tr height=20px class="week" style='text-align: center'>
 				<td class="mon_day"></td>
+				<td></td>
+								
 				<td class="mon_day"></td>
+				<td></td>
+				
 				<td class="mon_day"></td>
+				<td></td>
+				
 				<td class="mon_day"></td>
+				<td></td>
+				
 				<td class="mon_day"></td>
+				<td></td>
+				
 				<td class="mon_day"></td>
+				<td></td>
+				
 				<td class="mon_day"></td>
+				<td></td>
 				
 			</tr>
 			<tr height=100px class="week" style='text-align: center'>
+				<td colspan=2></td>
+				<td colspan=2></td>
+				<td colspan=2></td>
+				<td colspan=2></td>
+				<td colspan=2></td>
+				<td colspan=2></td>
+				<td colspan=2></td>		
+			</tr>
+			<tr height=20px class="week" style='text-align: center'>
 				<td class="mon_day"></td>
+				<td></td>
+								
 				<td class="mon_day"></td>
+				<td></td>
+				
 				<td class="mon_day"></td>
+				<td></td>
+				
 				<td class="mon_day"></td>
+				<td></td>
+				
 				<td class="mon_day"></td>
+				<td></td>
+				
 				<td class="mon_day"></td>
+				<td></td>
+				
 				<td class="mon_day"></td>
+				<td></td>
 				
 			</tr>
+			
 			<tr height=100px class="week" style='text-align: center'>
+				<td colspan=2></td>
+				<td colspan=2></td>
+				<td colspan=2></td>
+				<td colspan=2></td>
+				<td colspan=2></td>
+				<td colspan=2></td>
+				<td colspan=2></td>		
+			</tr>
+			
+			<tr height=20px class="week" style='text-align: center'>
 				<td class="mon_day"></td>
+				<td></td>
+								
 				<td class="mon_day"></td>
+				<td></td>
+				
 				<td class="mon_day"></td>
+				<td></td>
+				
 				<td class="mon_day"></td>
+				<td></td>
+				
 				<td class="mon_day"></td>
+				<td></td>
+				
 				<td class="mon_day"></td>
+				<td></td>
+				
 				<td class="mon_day"></td>
+				<td></td>
 				
 			</tr>		
+			
+			<tr height=100px class="week" style='text-align: center'>
+				<td colspan=2></td>
+				<td colspan=2></td>
+				<td colspan=2></td>
+				<td colspan=2></td>
+				<td colspan=2></td>
+				<td colspan=2></td>
+				<td colspan=2></td>		
+			</tr>
 		</table>
 		</div><br>
 		
@@ -257,5 +419,15 @@
 		<button id="b2" onclick = "now_m()">현재</button> &nbsp;
 		<button id="b3" onclick="after_m()">다음달</button> &nbsp;
 		
+		<div id="pop" class="main_pop">
+			<button id="close">닫기</button>
+			<h2 align="center">일정 등록</h2>
+			<div id="contents" style = "height:360px;">
+				<textarea id="tx" style="resize:none;" rows="10" cols="39.5"></textarea>
+				<br><br>
+				<center><input type="submit" value="등록"></center>
+			</div>
+		
+		</div>
 </body>
 </html>
