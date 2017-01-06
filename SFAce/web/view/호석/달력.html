@@ -2,14 +2,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>달력만들기</title>
+<title>Calendar</title>
 
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script type="text/javascript" src="../../jQuery/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-<style type="text/css">    
-		table{
-			width: 
-		}
+<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+<style type="text/css">
+    		
 		.main_pop{
 			width:300px;
 			height:300px;
@@ -18,6 +19,7 @@
 			border: 3px solid black;
 			display: none;
 		}
+		
 		#close{
 			width:50px;
 			height:30px;
@@ -26,22 +28,37 @@
 			position:absolute; top:0px;left:250px;
 			resize: none;
 		}
+		
+		#p1{
+			color : white;
+			background: black;
+		}
+		#p2{
+			color : white;
+			background: gray;
+		}
+		#p3{
+			color : white;
+			background: blue;
+		}
+		#p4{
+			color : white;
+			background: purple;
+		}
+		#p5{
+			color : white;
+			background: red;
+		}
+		
 		#contents{
 			margin-left: 2px;
-			}
+		}
+		
 		.tx{
 			resize: none;
 			border:0px
-		}
-	/* 	          
-        .d_day {
-            background: white;
-            color: darkblue;
-            font-size: 16px;
-            font-weight: bold;
-            border: 2px solid darkblue;
-        }      
-         */
+		}	
+		
          .mon_day{
          	text-align: left;
          	margin-top: 0px; 
@@ -50,19 +67,34 @@
 <script type="text/javascript">
 
 	var Calendar = new Date();
+	var today_css =0;
+	
+	var y;
+	var m;
+	var d;
+	
 	
 	var year = Calendar.getFullYear();   // yyyy   년도
 	var month = Calendar.getMonth()+1;     // 0 ~ 11 (1 ~ 12월 인덱스)
 	var today = Calendar.getDate();      // 1 ~ 31 (1 ~ 31일)
 	var weekday = Calendar.getDay();     // 0 ~ 6  (일요일 ~ 토요일 인덱스)
 	var lastday= (new Date(year, month, 0)).getDate();	//월 마지막일
+	var m = month;
 	
 	Calendar.setDate(1);  	
 	
  	$(document).ready(function(){		// 이번달 달력이 기본으로 출력
  		$("#close").click(function(){
  			$("#pop").hide();
- 		});
+ 		});	// 일정 등록창 없애는 기능 		
+ 		
+ 		$("#close").mouseenter(function(){
+			$(this).css("background","gray");
+		});	// 마우스 들어갈때 변화
+		
+		$("#close").mouseleave(function(){
+			$(this).css("background","white");
+		});
  	
  		$("#year").text(year+"년 "+month+"월 ");	//현재 연도와 월을 출력
 		var j = 0;
@@ -77,34 +109,67 @@
 			 		
 		}	// 날짜 구하기
 		
-		/* for(var i =0; i < lastday ; i++){	
+		for(var i =0; i < lastday ; i++){	
 			if(today == $("#a td.mon_day").eq(i).text()){
-				$("#a td.mon_day").eq(i).css("background","yellow");
+				$("#a td.mon_day").eq(i).css("background","yellow");				
+				today_css = i;
 			}
-		}	//오늘 날자 구하기	
-		 */
+		}	// 오늘 날자 구하기
+		
 		$("#a td.mon_day").mouseenter(function(){
 			$(this).css("background","gray");
-		});
+		});	// 마우스 들어갈때 변화
 		
 		$("#a td.mon_day").mouseleave(function(){
-			$(this).css("background","");						
-		}); 
+			if(today == $(this).text() && $(this).index() == today_css){	// 오늘 날자의 경우 css 유지
+				$(this).css("background","yellow");
+			}
+			else{
+				$(this).css("background","");
+			}
+		}); // 마우스 나올때 변화
 		
-		$("#a td").click(function(){
+		/* $("#a td").click(function(){
 			if($(this).text()!="" && $(this).text() < 32){
 				alert(year+"년 "+ month+"월 "+ $(this).text() +"일");
-			}
-			
-		}); 
-		$("#a td.mon_day").click(function(){
-			$(".main_pop").show();
-		})
+			}			
+		}); // 클릭시 날짜 알림 */
 		
+		$("#a td.mon_day").click(function(){
+			if($(this).text() != "" && $(this).text() != " "){	// 빈날짜 제외
+				$(".main_pop").show();
+			}
+			setTimeout(function(){	// 입력란 포커싱
+				$('#tx').focus();
+				}, 10);	
+			
+		})	// 클릭시 레어어 팝업
+		
+		$(function() {
+			$( "#pop" ).draggable();
+		});	// 레이어 팝업 이동
+		
+		for(i=0; i<35 ; i++){
+			if((i%7)==0){
+				$("#a td.mon_day").eq(i).css("color","red");
+			}
+		}	//일요일
+		
+		for(i=0; i<35 ; i++){
+			if((i%7)==6){
+				$("#a td.mon_day").eq(i).css("color","blue");
+			}
+		}	//토요일
+	
 	}); 
  	
  	
  	function now_m(){	//이번달
+ 		var str;
+		$("#a td div").empty(); // 기존의 내용 지움
+ 	
+ 		$("#year").text(year+"년 "+month+"월 ");	//현재 연도와 월을 출력
+ 		
  		var monlast = 0;
  		for(var i = 0; i < Calendar.getDay()+1; ++i) {	    
 	    	$("#a td.mon_day").eq(i).text(" ");
@@ -113,62 +178,44 @@
 		
 		for(var i = j; i< (lastday+j); i++){
 			$("#a td.mon_day").eq(i).text(i-j+1);
-			 		
+			monlast=i; 	// 말일 구하기
 		}	// 날짜 구하기
 		
 		for(var i =0; i < lastday ; i++){	
 			if(today == $("#a td.mon_day").eq(i).text()){
 				$("#a td.mon_day").eq(i).css("background","yellow");
-			}
-			monlast=i
-		}
+			}	
+		}	// 오늘 날짜 구하기
 		
 		for(var i = monlast+1; i < 35; ++i) {	    
 	    	$("#a td.mon_day").eq(i).text(" ");
 		}	// 마지막날 이후 구하기
 		
-		/* var j = 0;
- 		var monlast=0;
- 		var clicked_day= new Array();
-		
-		$("#year").text(year+"년 "+month+"월 ");	
-		
-		for(var i = 0; i < Calendar.getDay()+1; ++i) {	    
-	    	$("#a td").eq(i+7).text(" ");
-	    	j=i;
-		}	// 1일 전 구하기
-		
-		for(var i = j; i< (lastday+j); i++){
-			$("#a td").eq(i+7).text(i-j+1);
-			
-			if(today == $("#a td").eq(i+7).text()){
-				$("#a td").eq(i+7).addClass("d_day");	
-				$(".d_day").css("background","yellow");
-				$(".d_day_next").css("background","#ffffee");
-				$(".d_day_before").css("background","#ffffee");
-				clicked_day = i;
+		for(i=0; i<35 ; i++){
+			if((i%7)==0){
+				$("#a td.mon_day").eq(i).css("color","red");
 			}
-			monlast=i;
-		}	// 날짜 구하기	
-		
-		for(var i = monlast+1; i < 42; ++i) {	    
-	    	$("#a td").eq(i+7).text(" ");
-		}	// 마지막날 이후 구하기
- */		
-		
+		}	//일요일
+		for(i=0; i<35 ; i++){
+			if((i%7)==6){
+				$("#a td.mon_day").eq(i).css("color","blue");
+			}
+		}	//토요일
 	}
- 	 
- 	
+ 	  	
 	
 	function before_m(){	//이전달
+		var str;
+		$("#a td div").empty(); // 기존의 내용 지움
+				
 		var cal = new Date();//오늘 날짜를 기준으루..
 		cal.setDate(0);		
 		var monlast=0;
 		// 현재 달의 전달의 마지막 일
-		var y = cal.getFullYear();  
-		var m = cal.getMonth()+1;   
-		var d = cal.getDate();      
-
+		 y = cal.getFullYear();  
+		 m = cal.getMonth()+1;   
+		 d = cal.getDate();      
+		
 		$("#year").text(y+"년 "+m+"월 ");	
 		
 		var num = 35-d;	//시작 일의 th번째수
@@ -176,38 +223,47 @@
 		
 		for(var i = 0; i < num; ++i) {	    
 	    	$("#a td.mon_day").eq(i).text(" ");
-		}	
+		}	// 1일 전 구하기
 		
 		for(var i = num; i < d+4; i++){
 			$("#a td.mon_day").eq(i).text(num_day);
-			/* if(today == $("#a td").eq(i).text()){
-				$("#a td").eq(i).addClass("d_day_before");
-				$(".d_day").css("background","#ffffee");
-				$(".d_day_next").css("background","#ffffee");
-				$(".d_day_before").css("background","yellow");
-			} */
+			if(today_css == i){		// 오늘 날짜 위치의 css변경하기				
+				$(".mon_day").css("background","#ffffee");				
+			} 
 			num_day++;
 			monlast=i;
-		}
+		}	// 날짜 구하기
 		
 		for(var i = monlast+1; i < 35; ++i) {	    
 	    	$("#a td.mon_day").eq(i).text(" ");
 		}	// 마지막날 이후 구하기
 		
+		for(i=0; i<35 ; i++){
+			if((i%7)==0){
+				$("#a td.mon_day").eq(i).css("color","red");
+			}
+		}	//일요일
+		for(i=0; i<35 ; i++){
+			if((i%7)==6){
+				$("#a td.mon_day").eq(i).css("color","blue");
+			}
+		}	//토요일
 		
-		return false;
 	}
 	
 	function after_m(){	//다음달
+		var str;
+		$("#a td div").empty(); // 기존의 내용 지움
+		
 		var cal = new Date();	
 		var monlast=0;
 		
 		var lastday = (new Date(year, month, 0)).getDate();	//이번달 마지막날
 		cal.setDate(lastday+1);	//다음달 1일
 				
-		var y = cal.getFullYear();  
-		var m = cal.getMonth()+1;   
-		var d = cal.getDate();
+		 y = cal.getFullYear();  
+		 m = cal.getMonth()+1;   
+		 d = cal.getDate();
 		var last = (new Date(y,m,0)).getDate();	//다음달 마지막날
 
 		$("#year").text(y+"년 "+m+"월 ");	
@@ -219,38 +275,47 @@
 		
 		for(var i = j; i< (last+j); i++){
 			$("#a td.mon_day").eq(i).text(i-j+1);	
-			/* if(today == $("#a td").eq(i).text()){
-				$("#a td").eq(i+7).addClass("d_day_next");
-				$(".d_day").css("background","#ffffee");
-				$(".d_day_before").css("background","#ffffee");
-				$(".d_day_next").css("background","yellow");
-			} */
+			if(today_css == i){		// 오늘 날짜 위치의 css변경하기				
+				$(".mon_day").css("background","#ffffee");				
+			} 
 			monlast=i;
 		}	// 날짜 구하기		
 		
 		for(var i = monlast+1; i < 35; ++i) {	    
 	    	$("#a td.mon_day").eq(i).text(" ");
 		}	// 마지막날 이후 구하기
-	}
-	
-	
 		
+		for(i=0; i<35 ; i++){
+			if((i%7)==0){
+				$("#a td.mon_day").eq(i).css("color","red");
+			}
+		}	//일요일
+		for(i=0; i<35 ; i++){
+			if((i%7)==6){
+				$("#a td.mon_day").eq(i).css("color","blue");
+			}
+		}	//토요일
+	}		
 </script>
 	
 <body>
-	<br>
+<div>
+<center><h1>일정</h1></center><hr>
+</div>
+
+	<center>
 		<div>
 		<table id="a" cellspacing="0" border="3px" width ="700px" hieght="700px" style='background:#ffffee;'>
-			<center><h1 id="year">년 월 입력</h1></center>
+			<h1 id="year">년 월 입력</h1>
 			
 			<tr height=100px class="week" style='text-align:center;background:#bbaaaa;'>
-				<td >일</td>
-				<td >월</td>
-				<td >화</td>
-				<td >수</td>
-				<td >목</td>
-				<td >금</td>
-				<td >토</td>
+				<td style="color:red;">일</td>
+				<td style="color:white;">월</td>
+				<td style="color:white;">화</td>
+				<td style="color:white;">수</td>
+				<td style="color:white;">목</td>
+				<td style="color:white;">금</td>
+				<td style="color:blue;">토</td>
 			</tr>
 			<tr height=20px class="week" style='text-align: center'>
 				
@@ -263,7 +328,20 @@
 				<td class="mon_day"></td>
 			</tr>
 			<tr height=100px class="week" style='text-align: center'>
-				<td ></td>
+				<td width=100 height=100 style="word-break:break-all" >
+				<div style="overflow-y:scroll; height:100%; width:100%">
+					<div id ="p1">- 내용 1
+					</div>
+					<div id ="p2">- 내용 2
+					</div>
+					<div id ="p3">- 내용 3
+					</div>
+					<div id ="p4">- 내용 4
+					</div>
+					<div id ="p5">- 내용 5
+					</div>
+				</div>
+				</td>
 				<td ></td>
 				<td ></td>
 				<td ></td>
@@ -349,22 +427,26 @@
 				<td></td>
 				<td></td>		
 			</tr>
-		</table>
+		</table>		
 		</div><br>
 		
 		<button id="b1" onclick="before_m()" >이전 달</button> &nbsp;
 		<button id="b2" onclick = "now_m()">현재</button> &nbsp;
 		<button id="b3" onclick="after_m()">다음달</button> &nbsp;
 		
+		</center>
+		
+		<form action="" method="">		
 		<div id="pop" class="main_pop">
 			<button id="close">닫기</button>
 			<h2 align="center">일정 등록</h2>
+			
 			<div id="contents" style = "height:360px;">
-				<textarea id="tx" style="resize:none;" rows="10" cols="39.5"></textarea>
+				<textarea id="tx" style="resize:none;" rows="10" cols="39.5" ></textarea>
 				<br><br>
 				<center><input type="submit" value="등록"></center>
-			</div>
-		
+			</div>		
 		</div>
+		</form>
 </body>
 </html>
