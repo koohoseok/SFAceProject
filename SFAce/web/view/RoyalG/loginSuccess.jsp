@@ -18,11 +18,15 @@
 <body>
 	<div id="top">
 		<div id="logo">
-		<h1><a href="#">S.F.Ace</a></h1>
+		<a href="#">S.F.Ace</a>
 		</div>
+		
 		<div id="regi">
 			<%= loginUser.getUserName() %> 님 환영합니다.<br>
 			<a href="/semi/logout"><input type="button" value="로그아웃" id="logout"></a>
+		</div>
+		<div id="search">
+		검색
 		</div>
 	</div>
 	<hr>
@@ -30,7 +34,7 @@
 		<div id="layout01">
 			<div class="club" style="cursor: pointer; background-image: url(../../images/문호/c01.jpg)" onclick="javascript:location.href='form02.jsp';"></div>
 			<div class="club" style="cursor: pointer; background-image: url(../../images/문호/c02.jpg)" onclick="javascript:location.href='form03.jsp';"></div>
-			<div class="club" style="cursor: pointer; background-image: url(../../images/문호/c03.jpg)" onclick="javascript:location.href='form02.jsp';"></div>
+			<div class="club" style="cursor: pointer; background-image: url(../../images/문호/c03.jpg)" onclick="javascript:location.href='form04.jsp';"></div>
 			<div class="club" style="cursor: pointer; background-image: url(../../images/문호/c04.jpg)" onclick="javascript:location.href='form02.jsp';"></div>
 			<div class="club" style="cursor: pointer; background-image: url(../../images/문호/c05.jpg)" onclick="javascript:location.href='form02.jsp';"></div>
 			<div class="club" style="cursor: pointer; background-image: url(../../images/문호/c06.jpg)" onclick="javascript:location.href='form02.jsp';"></div>

@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>애니사모</title>
 <link rel="stylesheet" type="text/css"
-	href="../../css/문호/smallForm3.css" />
+	href="../../css/문호/smallForm4.css" />
 <script type="text/javascript">
 	
 </script>

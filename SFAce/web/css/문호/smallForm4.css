@@ -5,38 +5,41 @@ body {
 	margin: 0 auto;
 	margin-top: 10px;
 }
-
-div#take01 {
-	border: 1px solid white;
-	width: 900px;
-	height: 150px;
+div#left {
+	width: 798px;
+	border-right : 1px solid gray;
+	float : right;
 }
-
 div#take01_01 {
-	border: 1px solid white;
-	width: 98%;
-	height: 30px;
-	margin-top: 5px;
-	margin-left: 1%;
+	float : left;
+	border: 1px solid red;
+	width: 93px;;
+	height: 615px;
 }
 div#take01_01 ul{
 	list-style : none;
 }
 div#take01_01 ul li{
-	float : left;
+	width : 90px;
+	height : 50px;
 	display : block;
 	color : white;
-	width : 120px;
 	text-align : center;
 	background : orange;
+	
 }
 
 div#take01_01 ul li a:link { color: white; text-decoration: none;}
 div#take01_01 ul li a:visited { color: white; text-decoration: none;}
 div#take01_01 ul li a:hover { color: white; text-decoration: none;}
 
+div#take01 {
+	border: 1px solid white;
+	width: 790px;
+	height: 150px;
+}
 div#take02 {
-	width: 900px;
+	width: 790px;
 	height: 150px;
 	margin-top: 5px;
 }
@@ -58,7 +61,7 @@ div#take02_02 {
 }
 
 div#take03 {
-	width: 900px;
+	width: 790px;
 	height: 150px;
 	margin-top: 5px;
 }
@@ -79,8 +82,7 @@ div#take03_02 {
 }
 
 div#take04 {
-	border: 1px solid gray;
-	width: 900px;
+	width: 790px;
 	height: 150px;
 	margin-top: 5px;
 }

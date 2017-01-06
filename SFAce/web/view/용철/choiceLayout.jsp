@@ -54,6 +54,7 @@
 	text-align: center;
 }
 
+
 .flex-container>* {
 	padding: 15px;
 	-webkit-flex: 1 100%;

@@ -9,7 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>디카사모</title>
-<link rel="stylesheet" type="text/css" href="../../css/문호/smallForm.css" />
+<link rel="stylesheet" type="text/css" href="../../css/문호/smallForm2.css" />
 <script type="text/javascript">
 	
 </script>
@@ -19,7 +19,7 @@
 		<div id="take01_01">
 			<ul>
 				<li>소모임정보</li>
-				<li>게시판</li>
+				<li><a href="javascript:location.href='../Song2/board.html';">게시판</a></li>
 				<li>일 정</li>
 				<li>사 진</li>
 				<li>대화방</li>
