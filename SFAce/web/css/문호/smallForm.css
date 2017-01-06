@@ -1,0 +1,86 @@
+@CHARSET "UTF-8";
+
+body {
+	width: 900px;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+
+div#take01 {
+	border: 1px solid white;
+	width: 900px;
+	height: 150px;
+}
+
+div#take01_01 {
+	border: 1px solid white;
+	width: 98%;
+	height: 30px;
+	margin-top: 5px;
+	margin-left: 1%;
+}
+div#take01_01 ul{
+	list-style : none;
+}
+div#take01_01 ul li{
+	float : left;
+	display : block;
+	color : white;
+	width : 120px;
+	text-align : center;
+	background : orange;
+}
+
+div#take01_01 ul li a:link { color: white; text-decoration: none;}
+div#take01_01 ul li a:visited { color: white; text-decoration: none;}
+div#take01_01 ul li a:hover { color: white; text-decoration: none;}
+
+div#take02 {
+	width: 900px;
+	height: 150px;
+	margin-top: 5px;
+}
+
+div#take02_01 {
+	width: 48%;
+	height: 140px;
+	margin-top: 5px;
+	float: left;
+	margin-left: 1%;
+}
+
+div#take02_02 {
+	width: 48%;
+	height: 140px;
+	margin-top: 5px;
+	float: right;
+	margin-right: 1%;
+}
+
+div#take03 {
+	width: 900px;
+	height: 150px;
+	margin-top: 5px;
+}
+div#take03_01 {
+	width: 48%;
+	height: 140px;
+	margin-top: 5px;
+	float: left;
+	margin-left: 1%;
+}
+
+div#take03_02 {
+	width: 48%;
+	height: 140px;
+	margin-top: 5px;
+	float: right;
+	margin-right: 1%;
+}
+
+div#take04 {
+	border: 1px solid gray;
+	width: 900px;
+	height: 150px;
+	margin-top: 5px;
+}

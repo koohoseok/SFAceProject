@@ -28,12 +28,12 @@
 	<hr>
 	<div id="mid">
 		<div id="layout01">
-			<div class="club" style="cursor: pointer; onclick=location.href='#'; background-image: url(../../images/문호/c01.jpg)"></div>
-			<div class="club" style="cursor: pointer; onclick=location.href='#'; background-image: url(../../images/문호/c02.jpg)"></div>
-			<div class="club" style="cursor: pointer; onclick=location.href='#'; background-image: url(../../images/문호/c03.jpg)"></div>
-			<div class="club" style="cursor: pointer; onclick=location.href='#'; background-image: url(../../images/문호/c04.jpg)"></div>
-			<div class="club" style="cursor: pointer; onclick=location.href='#'; background-image: url(../../images/문호/c05.jpg)"></div>
-			<div class="club" style="cursor: pointer; onclick=location.href='#'; background-image: url(../../images/문호/c06.jpg)"></div>
+			<div class="club" style="cursor: pointer; background-image: url(../../images/문호/c01.jpg)" onclick="javascript:location.href='form02.jsp';"></div>
+			<div class="club" style="cursor: pointer; background-image: url(../../images/문호/c02.jpg)" onclick="javascript:location.href='form03.jsp';"></div>
+			<div class="club" style="cursor: pointer; background-image: url(../../images/문호/c03.jpg)" onclick="javascript:location.href='form02.jsp';"></div>
+			<div class="club" style="cursor: pointer; background-image: url(../../images/문호/c04.jpg)" onclick="javascript:location.href='form02.jsp';"></div>
+			<div class="club" style="cursor: pointer; background-image: url(../../images/문호/c05.jpg)" onclick="javascript:location.href='form02.jsp';"></div>
+			<div class="club" style="cursor: pointer; background-image: url(../../images/문호/c06.jpg)" onclick="javascript:location.href='form02.jsp';"></div>
 		</div>
 		<div id="layout02">
 			<div id="make_club" style="cursor: pointer;" onclick="location.href='../용철/makeGroup.html';"></div>

@@ -10,6 +10,7 @@ public class Member {
 	private String email;
 	private char gender;
 	private String hobby;
+	private String groupNo;
 	
 	
 	public Member(){}
@@ -20,7 +21,7 @@ public class Member {
 		this.userName = userName;
 	}
 
-	public Member(String userId, String userPwd, String userName, String email, char gender, String hobby) {
+	public Member(String userId, String userPwd, String userName, String email, char gender, String hobby, String groupNo) {
 		super();
 		this.userId = userId;
 		this.userPwd = userPwd;
@@ -28,6 +29,7 @@ public class Member {
 		this.email = email;
 		this.gender = gender;
 		this.hobby = hobby;
+		this.groupNo = groupNo;
 	}
 
 	public String getUserId() {
@@ -78,11 +80,18 @@ public class Member {
 	public void setHobby(String hobby) {
 		this.hobby = hobby;
 	}
-
 	
+	public String getGroupNo() {
+		return groupNo;
+	}
+
+	public void setGroupNo(String groupNo) {
+		this.groupNo = groupNo;
+	}
+
 	@Override
 	public String toString(){
 		return this.userId+", "+this.userPwd+", "+this.userName+", "+this.email+", "+
-				", "+this.gender+", "+this.hobby;
+				", "+this.gender+", "+this.hobby+", "+groupNo;
 	}
 }

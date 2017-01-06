@@ -39,7 +39,7 @@ public class MemberDao {
 		int result =0;
 		PreparedStatement pstmt  =null;
 		
-		String query = "insert into member values(?,?,?,?,?,?)";
+		String query = "insert into member values(?,?,?,?,?,?,?)";
 		try{
 			pstmt = con.prepareStatement(query);
 			pstmt.setString(1, member.getUserId());
@@ -48,6 +48,7 @@ public class MemberDao {
 			pstmt.setString(4, member.getEmail());
 			pstmt.setString(5, String.valueOf(member.getGender()));
 			pstmt.setString(6, member.getHobby());
+			pstmt.setString(7, member.getGroupNo());
 			
 			result = pstmt.executeUpdate();
 			
